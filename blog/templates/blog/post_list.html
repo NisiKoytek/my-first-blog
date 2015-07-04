@@ -1,20 +1,15 @@
-<html>
-    <head>
-        <title>DieDasHorseDiary</title>
-    </head>
-    <body>
-    	<h1> Das größte Glück der Erde liegt auf dem Rücken der Pferde </h1>
-    	<h2> Willkommen auf meinem Blog!! </h2>
-    	<div>
-    		{% for post in posts %}
-    		     <div>
-                     <p>published: {{ post.published_date }}</p>
-                     <h1><a href="">{{ post.title }}</a></h1>
-                     <p>{{ post.text|linebreaks }}</p>
-                 </div>
-     		{% endfor %}
+{% extends "blog/base.html" %}
 
-    	</div>
-    </body>
-</html>
+{% block content %}
+	{% for post in posts %}
+		<div class="post">
+    		<div class="date">
+        		{{ post.published_date }}
+        	</div>
+        	<h1><a href="">{{ post.title }}</a></h1>
+        	<p>{{ post.text|linebreaks }}</p>
+		</div>
+	{% endfor %}
+{% endblock content %}        	
+
 
